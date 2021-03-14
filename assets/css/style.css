@@ -1,0 +1,19 @@
+
+a{
+    text-decoration: none;
+}
+
+body {
+    background-image: url("../images/body/BACKGROUND/background_village.png");
+    height: 100vh;
+    width:100vw;    
+}
+.container{
+    background-image: url("../images/BODY/BACKGROUND/bande\ milieu.png");
+    background-repeat: no-repeat;
+    background-size:auto; 
+}
+.navbar{
+    background-image: url("../images/HEADER/3_bandes.png");
+    background-repeat: no-repeat;
+} 
