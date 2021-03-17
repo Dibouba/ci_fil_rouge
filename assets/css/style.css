@@ -14,9 +14,9 @@ body {
     background-image: url("../images/BODY/BACKGROUND/bande\ milieu.png"); 
     position: absolute; 
     background-repeat: no-repeat;
-    height: 151VH;  
-    /* padding: 50px auto 20px auto; */
-    background-size: 100%; 
+    height: 237vh;  
+    padding: 50px auto 20px auto; 
+    background-size: 100%;  
 
    
    

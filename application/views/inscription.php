@@ -25,6 +25,7 @@
             </div>
             <div class="col-8">
                 <input type="password" class="form-control" name="motdpas" id="motdpas" width="200">
+                <?php echo form_error('motdpas', '<p class="field-error">', '</p>'); ?>
             </div>
         </div>
     </div>
@@ -37,6 +38,7 @@
             </div>
             <div class="col-8">
                 <input type="password" class="form-control" name="confpas" id="confpas" width="200">
+                <?php echo form_error('confpas', '<p class="field-error">', '</p>'); ?>
             </div>
         </div>
     </div>
@@ -51,44 +53,50 @@
                 <label for="Prenom">Prénom</label>
             </div>
             <div class="col-8">
-                <input type="text" class="form-control" id="Prenom" name="prenom"><br>
+                <input type="text" class="form-control" id="Prenom" name="prenom">
+                <?php echo form_error('prenom', '<p class="field-error">', '</p>'); ?><br>
             </div>
             <div class="col-3">
                 <label for="nom">Nom</label>
             </div>
             <div class="col-8">
-                <input type="text" class="form-control" id="nom" value="<?php echo !empty($_POST['nom']), $_POST['nom'] = ''; ?>" name="nom"><br>
-                <?php echo form_error('nom', '<p class="field-error">', '</p>'); ?>
+                <input type="text" class="form-control" id="nom" name="nom">
+                <?php echo form_error('nom', '<p class="field-error text-danger">', '</p>'); ?><br>
             </div>
             <div class="col-3">
                 <label for="adresse">Adresse</label>
             </div>
             <div class="col-8">
-                <input type="text" class="form-control" id="adresse" name="adresse"><br>
+                <input type="text" class="form-control" id="adresse" name="adresse">
+                <?php echo form_error('adresse', '<p class="field-error">', '</p>'); ?><br>
             </div>
             <div class="col-3">
                 <label for="compadres">Complément d'adresse</label>
             </div>
             <div class="col-8">
-                <input type="text" class="form-control" id="compadres" name="compadres"><br>
+                <input type="text" class="form-control" id="compadres" name="compadres">
+                <?php echo form_error('compadres', '<p class="field-error">', '</p>'); ?><br>
             </div>
             <div class="col-3">
                 <label for="codpos">Code postal</label>
             </div>
             <div class="col-8">
-                <input type="text" class="form-control" id="codpos" name="codpos"><br>
+                <input type="text" class="form-control" id="codpos" name="codpos">
+                <?php echo form_error('codpos', '<p class="field-error">', '</p>'); ?><br>
             </div>
             <div class="col-3">
                 <label for="ville">Ville</label>
             </div>
             <div class="col-8">
-                <input type="text" class="form-control" id="ville" name="ville"><br>
+                <input type="text" class="form-control" id="ville" name="ville">
+                <?php echo form_error('ville', '<p class="field-error">', '</p>'); ?><br>
             </div>
             <div class="col-3">
                 <label for="pays">Pays</label>
             </div>
             <div class="col-8">
                 <input type="text" class="form-control" id="pays" name="pays">
+                <?php echo form_error('pays', '<p class="field-error">', '</p>'); ?><br>
             </div>
 
         </div>
@@ -107,7 +115,7 @@
     <button type="submit"><img src="<?php echo base_url("assets/images/body/espace client/bouton_valider.png"); ?>" class="frm-submit" alt="bouton valider"></button>
 </div>
 <?php echo form_close() ?>
-<div class="row">
+<div class="row mt-3">
 
     <a href="#"><img src="<?php echo base_url("assets/images/body/espace client/bas_de_page_pictos.png"); ?>" class="img-fluid" width="100%" height="auto" alt="image banniere"></a>
 
