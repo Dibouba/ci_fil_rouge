@@ -5,15 +5,49 @@ a{
 
 body {
     background-image: url("../images/body/BACKGROUND/background_village.png");
-    height: 100vh;
-    width:100vw;    
+    max-width: 100%;  
+    margin: auto;
+    width:960px ; 
+    padding: 0;
 }
 .container{
-    background-image: url("../images/BODY/BACKGROUND/bande\ milieu.png");
+    background-image: url("../images/BODY/BACKGROUND/bande\ milieu.png"); 
+    position: absolute; 
     background-repeat: no-repeat;
-    background-size:auto; 
+    height: 151VH;  
+    /* padding: 50px auto 20px auto; */
+    background-size: 100%; 
+
+   
+   
 }
-.navbar{
+.bande{
     background-image: url("../images/HEADER/3_bandes.png");
     background-repeat: no-repeat;
-} 
+  
+}  
+.row {
+    margin-right: 0 !important;
+    margin-left: 0 !important;
+}
+.image{
+    z-index: 1;
+    position: absolute;
+    
+}
+.navbar{
+    z-index: 0;
+}
+/* .valide input{
+     margin-top: 1069px; 
+    margin-left: 500px;
+    width: 170px;
+    background-image: url("assets/images/body/espace client/bouton_valider.png");
+    background-repeat: no-repeat;
+    height: 50px;
+}  */
+/* .footer
+{
+    background-image: url("../images/FOOTER/footer_simple.png");
+    
+}  */
