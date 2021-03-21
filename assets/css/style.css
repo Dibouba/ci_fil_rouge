@@ -1,6 +1,7 @@
 
 a{
     text-decoration: none;
+
 }
 
 body {
@@ -10,13 +11,15 @@ body {
     width:960px ; 
     padding: 0;
 }
-.container{
+.milieu{
     background-image: url("../images/BODY/BACKGROUND/bande\ milieu.png"); 
-    position: absolute; 
-    background-repeat: no-repeat;
-    height: 237vh;  
+    /* position: absolute;  */
+    background-repeat: repeat-y;
+    /* height: 480vh;   */
+  
     padding: 50px auto 20px auto; 
-    background-size: 100%;  
+    background-size: cover;   
+
 
    
    
@@ -29,7 +32,7 @@ body {
 .row {
     margin-right: 0 !important;
     margin-left: 0 !important;
-}
+} 
 .image{
     z-index: 1;
     position: absolute;
@@ -37,6 +40,9 @@ body {
 }
 .navbar{
     z-index: 0;
+}
+p{
+    color: red;
 }
 /* .valide input{
      margin-top: 1069px; 

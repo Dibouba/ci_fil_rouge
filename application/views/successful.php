@@ -4,7 +4,6 @@
     <title>verification</title>
 </head>
 <body>
-    <h3>Votre inscription a été accepté avec succés</h3>
-    <p><?php echo anchor('form','ressayer')?></p>
+    <h3>Votre inscription a été accepté avec succés</h3> 
 </body>
 </html>
