@@ -4,15 +4,15 @@ defined('BASEPATH') OR exit('No direct srcipt access allowed');
         public function preg($str){
             //controle du mail
             
-            if(!preg_match_all("/^[a-z0-9.-]+@[a-z0-9.-]{2,}.[a-z]{2,4}$/",$str)){
-                $this->form_validztion->set_message('preg','e-mail obligatiore');
+            if(!preg_match("/^[a-z0-9.-]+@[a-z0-9.-]{2,}.[a-z]{2,4}$",$str)){
+                $this->form_validation->set_message('preg','e-mail obligatiore');
                 return false;
             }
             else{
                 return true;
             }
             // controle du mot de passe
-            if(!preg_match("^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[$@])\S{8,12}$",$str)){
+            if(!preg_match("/^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[$@])\S{8,12}$",$str)){
                 $this->form_validation->set_massage('preg','le mot de passe est oblogatoire');
                 return false;
             }
@@ -20,7 +20,7 @@ defined('BASEPATH') OR exit('No direct srcipt access allowed');
                 return true;
             }
             // controle de la confirmation du mot de passe
-            if(!preg_match("^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[$@])\S{8,12}$",$str)){
+            if(!preg_match("/^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[$@])\S{8,12}$",$str)){
                 $this->form_validation->set_massage('preg','le mot de passe est oblogatoire');
                 return false;
             }
@@ -28,7 +28,7 @@ defined('BASEPATH') OR exit('No direct srcipt access allowed');
                 return true;
             }
             // controle du prenom
-            if(!preg_match("^[A-Za-z]+$",$str)){
+            if(!preg_match("/^[A-Za-z]+$",$str)){
                 $this->form_validation->set_message('preg','le prenom est obligatoire');
                 return false;
             }
@@ -36,7 +36,7 @@ defined('BASEPATH') OR exit('No direct srcipt access allowed');
                 return true;
             }
             //controle du nom
-            if(!preg_match("^[A-Za-z]+$",$str)){
+            if(!preg_match("/^[A-Za-z]+$",$str)){
                 $this->form_validation->set_message('preg','le nom est obligatoire');
                 return false;
             }
@@ -52,7 +52,7 @@ defined('BASEPATH') OR exit('No direct srcipt access allowed');
                 return true;
             }
             // controle du code postal
-            if(! preg_match("^[0-9]{5}$",$str)){
+            if(! preg_match("/^[0-9]{5}$",$str)){
                 $this->form_validation->set_message('preg','le code postale est obligatoire');
                 return false;
             }
@@ -60,7 +60,7 @@ defined('BASEPATH') OR exit('No direct srcipt access allowed');
                 return true;
             }
             // controle de la ville
-            if(!preg_match("^[A-Za-z]+$", $str)){
+            if(!preg_match("/^[A-Za-z]+$", $str)){
                 $this->form_validation->set_message('preg', 'la ville est oblgatoire');
                 return false;
             }
@@ -68,7 +68,7 @@ defined('BASEPATH') OR exit('No direct srcipt access allowed');
                 return true;
             }
             // controle du pays
-            if(!preg_match("^[A-Za-z]+$", $str)){
+            if(!preg_match("/^[A-Za-z]+$", $str)){
                 $this->form_validation->set_message('preg', 'le pays est oblgatoire');
                 return false;
             }
@@ -83,15 +83,16 @@ defined('BASEPATH') OR exit('No direct srcipt access allowed');
             // $this->load->library('form_validation');
             // validation du formulaire
 
-            $this->form_validation->set_rules('mail','E-mail', 'required', array('required'=>'le mail est obligatoire'));
-            $this->form_validation->set_rules('motdpas', 'Mot de passe', 'required', array('required'=>'renseigner le mot de passe'));
-            $this->form_validation->set_rules('confpas', 'Confirmation mot de passe', 'required', array('required'=>'le mot de passe ne correspond pas'));
-            $this->form_validation->set_rules('prenom', 'Prénom', 'required', array('required'=>'le prenom est obligatoire'));
-            $this->form_validation->set_rules('nom', 'Nom', 'required', array('required'=>'le nom est obligatoire'));
-            $this->form_validation->set_rules('adresse', 'Adresse','required', array('required'=>'l\'adresse postal est obligatoire'));
+            $this->form_validation->set_rules('mail','E-mail', 'required|callback_preg');
+            $this->form_validation->set_rules('motdpas', 'Mot de passe', 'required|callback_preg');
+            $this->form_validation->set_rules('confpas', 'Confirmation mot de passe', 'required|callback_preg');
+            $this->form_validation->set_rules('prenom', 'Prénom', 'required|callback_preg');
+            $this->form_validation->set_rules('nom', 'Nom', 'required|callback_preg');
+            $this->form_validation->set_rules('adresse', 'Adresse','required|callback_preg');
             $this->form_validation->set_rules('compadres', 'Complement d\'adresse');
-            $this->form_validation->set_rules('codpos', 'Code postal', 'required', array('required'=>'le code postal est obligatoire'));
-            $this->form_validation->set_rules('ville', 'Ville', 'required', array('required'=>'la ville est obligatoire'));
+            $this->form_validation->set_rules('codpos', 'Code postal', 'required|callback_preg');
+            $this->form_validation->set_rules('ville', 'Ville', 'required|callback_preg');
+            $this->form_validation->set_rules('pays','Pays','required|callback_preg');
              // les test de validation
             if($this->form_validation->run()==false){
                 //retour la page d'inscription
