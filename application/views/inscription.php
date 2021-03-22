@@ -65,7 +65,7 @@
                     <?php echo form_error('nom', '<p class="field-error">', '</p>'); ?><br>
                 </div>
                 <div class="col-4">
-                    <label for="adresse">Adresse</label>
+                    <label for="adresse" name="adresseLabel" id="adresseLabel">Adresse</label>
                 </div>
                 <div class="col-8">
                     <input type="text" class="form-control bg-transparent" id="adresse" name="adresse">

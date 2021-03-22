@@ -29,7 +29,7 @@
               <div class="collapse navbar-collapse float-left" id="navbarTogglerDemo01">
                 <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
                   <li class="nav-item mr-5">
-                    <a class="nav-link" aria-current="page" href="#">info</a>
+                    <a class="nav-link" aria-current="page" href="<?php echo site_url("action/connexion");?>">info</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link inscrit" href="">espace client</a>
