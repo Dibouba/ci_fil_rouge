@@ -3,118 +3,142 @@ defined('BASEPATH') OR exit('No direct srcipt access allowed');
     class action extends CI_Controller{
         
         
+        //controle du mail
         public function pregmail($str){
-            //controle du mail
             if($str == ''){
                 $this->form_validation->set_message(array('required'=>'E-mail obligatoire'));
             }
-            // else if(!preg_match("/^[a-z0-9.-]+@[a-z0-9.-]{2,}.[a-z]{2,4}$/",$str)){
+             else if(!preg_match("/^[a-z0-9.-]+@[a-z0-9.-]{2,}.[a-z]{2,4}$/",$str)){
             // else if(!$this->form_validation->valid_email($str)){
             //     // var_dump($this->form_validation);
-            //     $this->form_validation->set_message(array('valid_email'=>'E-mail incorrect'));
+                 $this->form_validation->set_message(array('valid_email'=>'E-mail incorrect'));
             //     var_dump("false");
             //     // var_dump($this->form_validation);
             //     // $this->form_validation->set_message('pregmail','e-mail obligatiore');
             //     // return false;
                
-            // }
+             }
             else{
-                // return true;
+                 return true;
             }
         }
-        public function pregmot($str1){
-            // controle du mot de passe
-            if(!preg_match("/^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[$@])\S{8,12}$/", $str1)){
-                $this->form_validation->set_message('pregmot','le mot de passe est oblogatoire');
+    
+    // controle du mot de passe
+    public function pregmot($str1){
+            if($str1==''){
+                $this->form_validation->set_message(array('required'=>'le mot de passe est oblogatoire'));
+            }
+            else if(!preg_match("/^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[$@])\S{8,12}$/", $str1)){
+                $this->form_validation->set_message(array('required'=>'le mot de passe est incorrect'));
                 // return false;
                
             }
             else{
-                // return true;
+                 return true;
             }
         }
+        // controle de la confirmation du mot de passe
         public function pregconfi($str2){
-            // controle de la confirmation du mot de passe
-            if(!preg_match("/^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[$@])\S{8,12}$/",$str2)){
-                $this->form_validation->set_message('pregconfi','le mot de passe est oblogatoire');
+            if($str2==''){
+                $this->form_validation->set_message(array('required'=>'confirmer le mot de passe'));
+            }
+            else if(!preg_match("/^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[$@])\S{8,12}$/",$str2)){
+                $this->form_validation->set_message(array('required'=>'le mot n\'est pas identique'));
                 // return false;
                 
             }
             else{
-                // return true;
+                 return true;
             }
         }
+        // controle du prenom
         public function pregprenom($str3){
-            // controle du prenom
-            if(!preg_match("/^[A-Za-z]+$/",$str3)){
-                $this->form_validation->set_message('pregprenom','le prenom est obligatoire');
+            if($str3==''){
+                $this->form_validation->set_message(array('required'=>'le prenom est obligatoire'));
+            }
+            else if(!preg_match("/^[A-Za-z]+$/",$str3)){
+                $this->form_validation->set_message(array('required'=>'le prenom est incorrect'));
                 // return false;
                
             }
             else{
-                // return true;
+                 return true;
             }
         }
+        //controle du nom
         public function pregnom($str4){
-            //controle du nom
-            if(!preg_match("/^[A-Za-z]+$/", $str4)){
-                $this->form_validation->set_message('pregnom','le nom est obligatoire');
+            if($str4==''){
+                $this->form_validation->set_message(array('required'=>'le nom est obligatoire'));
+            }
+            else if(!preg_match("/^[A-Za-z]+$/", $str4)){
+                $this->form_validation->set_message(array('required'=>'le nom est incorrect'));
                 // return false;
                
             }
             else{
-                // return true;
+                return true;
             }
         }
+        // controle de l'adresse
         public function pregadresse($str5){
-            // controle de l'adresse
-            if(!preg_match("/^[0-9] [A-Za-z]+ [A-Za-z]+ [A-Za-z]+$/", $str5)){
+            if($str5==''){
                 $this->form_validation->set_message(array('required'=>'l\'adresse est obligatoire'));
+            }
+            else if(!preg_match("/^[0-9] [A-Za-z]+ [A-Za-z]+ [A-Za-z]+$/", $str5)){
+                $this->form_validation->set_message(array('required'=>'l\'adresse est incorrect'));
                 // return false;
                 
             }
             else{
-                // return true;
+                 return true;
             }
         }
+        // controle du code postal
         public function pregcodpos($str6){
-            // controle du code postal
-            if(!preg_match("/^[0-9]{5}$/", $str6)){
-                $this->form_validation->set_message(array('required'=>'le code postale est obligatoire'));
-                var_dump("false");
+            if($str6==''){
+              $this->form_validation->set_message(array('required'=>'le code postale est obligatoire'));
+            }
+            else if(!preg_match("/^[0-9]{5}$/", $str6)){
+                $this->form_validation->set_message(array('required'=>'le code postale est incorrect'));
+              
                 // return false;
                
             }
             else{
-                var_dump("true");
-                // return true;
+               
+                 return true;
             }
         }
+        // controle de la ville
         public function pregville($str7){
-            // controle de la ville
-            if(!preg_match("/^[A-Za-z]+$/", $str7)){
+            if($str7==''){
+                $this->form_validation->set_message(array('required'=>'le nom de la ville est obliagatoire'));
+            }
+            else if(!preg_match("/^[A-Za-z]+$/", $str7)){
                 // $this->form_validation->set_message(array('required'=>'la ville est oblgatoire'));
-                $this->form_validation->set_message(array('required'=>'renseigner la ville'));
+                $this->form_validation->set_message(array('required'=>'le nom de la ville est incorrect'));
                 // $this->form_validation->set_message('pregville', 'la ville est oblgatoire');
                 // return false;
                 
             }
             else{
-                // return true;
+                 return true;
             }
         }
+        // controle du pays
         public function pregpays($str8){
-            // controle du pays
-            if(!preg_match("/^[A-Za-z]+$/",$str8)){
-                $this->form_validation->set_message('pregpays', 'le pays est oblgatoire');
+            if($str8==''){
+                $this->form_validation->set_message(array('required'=>'le pays est oblgatoire'));
+            }
+            else if(!preg_match("/^[A-Za-z]+$/",$str8)){
+                $this->form_validation->set_message(array('required'=> 'le nom du pays est incorrect'));
                 // return false;
                
             }
             else{
-                // return true;
+                 return true;
             }
-            // var_dump($str);
-            return true;
+           
         }
 
         public function contact(){
@@ -124,14 +148,14 @@ defined('BASEPATH') OR exit('No direct srcipt access allowed');
             // validation du formulaire
 
             $this->form_validation->set_rules('mail','E-mail', 'required|valid_email',array('valid_email'=>'E-mail incorrect','required'=>'E-mail obligatoire'));
-            $this->form_validation->set_rules('motdpas', 'Mot de passe', 'required|callback_pregmot',array('required'=>'mot de passe incorrect'));
-            $this->form_validation->set_rules('confpas', 'Confirmation mot de passe', 'required|callback_pregconfi',array('required'=>'mot de passe ne correspond pas'));
-            $this->form_validation->set_rules('prenom', 'Prénom', 'required|callback_pregprenom',array('required'=>'renseigner le prénom'));
-            $this->form_validation->set_rules('nom', 'Nom', 'required|callback_pregnom',array('required'=>'renseigner le nom'));
+            $this->form_validation->set_rules('motdpas', 'Mot de passe', 'required|callback_pregmot');
+            $this->form_validation->set_rules('confpas', 'Confirmation mot de passe', 'required|callback_pregconfi');
+            $this->form_validation->set_rules('prenom', 'Prénom', 'required|callback_pregprenom');
+            $this->form_validation->set_rules('nom', 'Nom', 'required|callback_pregnom');
             $this->form_validation->set_rules('adresse', 'adresse','required|callback_pregadresse');
-            $this->form_validation->set_rules('codpos', 'Code postal', 'callback_pregcodpos');
+            $this->form_validation->set_rules('codpos', 'Code postal', 'required|callback_pregcodpos');
             $this->form_validation->set_rules('ville', 'Ville', 'callback_pregville|required');
-            $this->form_validation->set_rules('pays','Pays','required|callback_pregpays',array('required'=>'renseigner le pays'));
+            $this->form_validation->set_rules('pays','Pays','required|callback_pregpays');
              // les test de validation
             if($this->form_validation->run()==false){
                 //retour la page d'inscription
