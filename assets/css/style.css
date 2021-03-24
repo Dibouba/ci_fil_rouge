@@ -50,9 +50,13 @@ p{
 
 #pub{
     height: 79vh;
-}
+} 
 /****** ajustement de la taille de l'image micro******/
 #micro{
+   height: 20vh;
+    width: 3000vw;
+} 
+#saxo{
     height: 20vh;
-    width: 300vw;
+    width: 3000vw;
 }
