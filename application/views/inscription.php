@@ -121,4 +121,3 @@
 <div class="row mt-3">
     <a href="#"><img src="<?php echo base_url("assets/images/body/espace client/bas_de_page_pictos.png"); ?>" class="img-fluid" width="100%" height="auto" alt="image banniere"></a>
 </div>
-</div>
