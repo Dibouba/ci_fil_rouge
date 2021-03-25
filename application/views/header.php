@@ -51,7 +51,7 @@
               <div class="collapse navbar-collapse float-left" id="navbarTogglerDemo01">
                 <ul class="navbar-nav ml-auto mb-2 mb-lg-0 mr-5 font-weight-bold">
                   <li class="nav-item ">
-                    <a class="nav-link text-white mr-5" aria-current="page" href="produit.php">Produits</a>
+                    <a class="nav-link text-white mr-5" aria-current="page" href="<?php echo site_url("action/charge")?>">Produits</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link text-white mr-5" href="service.php">Service</a>

@@ -176,9 +176,17 @@ defined('BASEPATH') OR exit('No direct srcipt access allowed');
             $this->load->view('footer');
         }
         public function index(){
-            // $this->load->database();
+           
             $this->load->view('header');
             $this->load->view('index');
+            $this->load->view('footer');
+        }
+        public function charge(){
+            $this->load->model('ajoutproduit');
+            $rest= $this->ajoutproduit->liste();
+            $data= array('ajout', $rest);
+            $this->load->view('header');
+            $this->load->view('chargeproduit',$data);
             $this->load->view('footer');
         }
     }
