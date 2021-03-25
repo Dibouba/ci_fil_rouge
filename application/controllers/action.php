@@ -28,7 +28,7 @@ defined('BASEPATH') OR exit('No direct srcipt access allowed');
             if($str1==''){
                 $this->form_validation->set_message(array('required'=>'le mot de passe est oblogatoire'));
             }
-            else if(!preg_match("/^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[$@])\S{8,12}$/", $str1)){
+            else if(!preg_match("/^(?=.*[A-Z])(?=.*[a-z])(?=.*\w)(?=.*[0-9])\S{8,12}$/", $str1)){
                 $this->form_validation->set_message(array('required'=>'le mot de passe est incorrect'));
                 // return false;
                
@@ -39,10 +39,11 @@ defined('BASEPATH') OR exit('No direct srcipt access allowed');
         }
         // controle de la confirmation du mot de passe
         public function pregconfi($str2){
+        
             if($str2==''){
                 $this->form_validation->set_message(array('required'=>'confirmer le mot de passe'));
             }
-            else if(!preg_match("/^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[$@])\S{8,12}$/",$str2)){
+            else if(!preg_match("/^(?=.*[A-Z])(?=.*[a-z])(?=.*\w)(?=.*[0-9])\S{8,12}$/",$str2)){
                 $this->form_validation->set_message(array('required'=>'le mot n\'est pas identique'));
                 // return false;
                 

@@ -1,8 +1,8 @@
-
-a{
+/* a{
     text-decoration: none;
-
-}
+    
+} */
+/***** mise en place du background général sur le body  *****/
 
 body {
     background-image: url("../images/body/BACKGROUND/background_village.png");
@@ -11,49 +11,52 @@ body {
     width:960px ; 
     padding: 0;
 }
+/***** mise en place du background du milieu  *****/
 .milieu{
     background-image: url("../images/BODY/BACKGROUND/bande\ milieu.png"); 
-    /* position: absolute;  */
     background-repeat: repeat-y;
-    /* height: 480vh;   */
-  
     padding: 50px auto 20px auto; 
-    background-size: cover;   
-
-
-   
-   
+    /* background-size: cover;    */
+    width: 150vh;
+    position: absolute;
+    background-repeat: no-repeat;
 }
+/***** mise en place du background des 3 bandes du header  *****/
 .bande{
     background-image: url("../images/HEADER/3_bandes.png");
     background-repeat: no-repeat;
   
 }  
+/****** mettre les marges du row à zéro ******/
 .row {
     margin-right: 0 !important;
     margin-left: 0 !important;
 } 
+/****** la mise du logo en absolute et en premier plan ******/
 .image{
     z-index: 1;
     position: absolute;
     
 }
+/****** mettre les navbars au plan zéro******/
 .navbar{
     z-index: 0;
 }
+/****** tous les messages d'erreurs de la balise p en rouge******/
 p{
     color: red;
 }
-/* .valide input{
-     margin-top: 1069px; 
-    margin-left: 500px;
-    width: 170px;
-    background-image: url("assets/images/body/espace client/bouton_valider.png");
-    background-repeat: no-repeat;
-    height: 50px;
-}  */
-/* .footer
-{
-    background-image: url("../images/FOOTER/footer_simple.png");
-    
-}  */
+/****** ajuster la hauteur de l'image de la publicité de guitare******/
+
+#pub{
+    height: 79vh;
+} 
+/****** ajustement de la taille de l'image micro******/
+#micro{
+   height: 20vh;
+    width: 3000vw;
+} 
+#saxo{
+    height: 20vh;
+    width: 3000vw;
+}

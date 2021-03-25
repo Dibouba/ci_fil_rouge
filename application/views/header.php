@@ -19,8 +19,8 @@
       <header>
         <div class="bande">
           <div class="row">
-            <div class=" col-xs-3 mt-3 image">
-              <a href="<?php echo base_url()?>"><img src="<?php echo base_url("assets/images/HEADER/logo_village_green.png"); ?>" classe="img-fluid ml-3" alt="image logo"></a>
+            <div class=" col-xs-3 mt-3 image ml-3">
+              <a href="<?php echo base_url()?>"><img src="<?php echo base_url("assets/images/HEADER/logo_village_green.png"); ?>" classe="img-fluid" alt="image logo"></a>
             </div>
             <nav class="navbar navbar-expand-lg navbar-light offset-6 col-3  mt-2">
               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
