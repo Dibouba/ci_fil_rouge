@@ -1,6 +1,6 @@
-header /*{
-    /* border: 1px solid black; 
-}*/
+header *{
+    /* border: 1px solid black; */
+}
 
 body {
     background-image: url("../images/body/BACKGROUND/background_village.png");
@@ -14,7 +14,7 @@ body {
 
 #block_page{
     border: 1px solid black;
-    background-image: url("../images/BODY/BACKGROUND/bande milieu.png");
+    background-image: url("../images/BODY/BACKGROUND/bande\ milieu.png");
     /* position: absolute;  */
     /* background-repeat: repeat-y; */
     background-size: cover; 
@@ -43,6 +43,7 @@ header{
 #logo{
     /* background-image: url("../images/HEADER/logo_village_green.png"); */
     /* background-size: cover; */
+<<<<<<< HEAD
     position: absolute;
     /* min-width: 200px;
     min-height: 150px; */
@@ -67,6 +68,32 @@ nav{
 
 #btn1,#btn2,#btn3{
     position: absolute;
+=======
+    position: absolute;
+    /* min-width: 200px;
+    min-height: 150px; */
+    z-index: 10000;
+    padding: 0;
+}
+
+#logo img{
+    /* background-image: url("../images/HEADER/logo_village_green.png"); */
+    /* background-size: cover; */
+    position: relative;
+    /* min-height: 150px; */
+    z-index: 10000;
+}
+nav{
+    position: relative;
+    min-height: 50px !important;
+    padding: 0  !important;
+    padding-top: 15px  !important;
+    /* margin-top: 5px; */
+}
+
+#btn1,#btn2,#btn3{
+    position: absolute;
+>>>>>>> 3c46cdb... work in progress (header.php)
     left: -15px;
     z-index: 10000;
 }
