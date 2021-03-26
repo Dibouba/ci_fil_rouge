@@ -1,4 +1,4 @@
-<div class="table-responsive table-bordered mt-4,;">
+<div class="table-responsive table-bordered mt-4">
     <table class="table">
         <thead class="thead-light">
             <tr>
@@ -35,4 +35,4 @@
 </div>
 <a href="<?php echo site_url("action/ajout")?>" class="btn btn-danger" role="button">Ajout Produit</a>
 <a role="button" href="<?php echo site_url()?>" class="btn btn-warning">Modifier Produit</a>
-<a role="button" href="<?php echo site_url()?>" class="btn btn-primary">Supprimer</button>
+<a role="button" href="<?php echo site_url()?>" class="btn btn-primary">Supprimer</a>

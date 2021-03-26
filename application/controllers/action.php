@@ -169,6 +169,7 @@ defined('BASEPATH') OR exit('No direct srcipt access allowed');
             }
 
         }
+        //chargement de la page d'inscription
         public function connexion(){
             
             $this->load->view('header');
@@ -176,12 +177,14 @@ defined('BASEPATH') OR exit('No direct srcipt access allowed');
             $this->load->view('inscription');
             $this->load->view('footer');
         }
+        // chargement de la page index
         public function index(){
            
             $this->load->view('header');
             $this->load->view('index');
             $this->load->view('footer');
         }
+        // chargement du tableau pour lister tous les produits
         public function charge(){
             $this->load->model('ajoutproduit');
             $rest = $this->ajoutproduit->liste();
@@ -190,6 +193,7 @@ defined('BASEPATH') OR exit('No direct srcipt access allowed');
             $this->load->view('chargeproduit', $data);
             $this->load->view('footer');
         }
+        // chargement et validetion du formulaire d'ajout 
         public function pro_ajout()
         {
             //validation du formulaire d'ajout de produit
@@ -215,10 +219,13 @@ defined('BASEPATH') OR exit('No direct srcipt access allowed');
                 $this->load->view('succes');
             }
         }
+        // chargement du formulaire d'ajout produit
         public function ajout()
         {
+            $this->load->model('ajout');
+            $req=$this->ajout->insert();
              $this->load->view('header');
-             $this->load->view('ajoutproduct');
+             $this->load->view('ajoutproduct',$req);
              $this->load->view('footer');
         }
     }

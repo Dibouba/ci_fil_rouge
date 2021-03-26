@@ -14,5 +14,6 @@ class ajoutproduit  extends  CI_Model
         // $query=$query->result_array();
         // return $query;
     }
+   
     
 }

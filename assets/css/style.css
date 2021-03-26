@@ -1,62 +1,107 @@
-/* a{
-    text-decoration: none;
-    
-} */
-/***** mise en place du background général sur le body  *****/
+header /*{
+    /* border: 1px solid black; 
+}*/
 
 body {
     background-image: url("../images/body/BACKGROUND/background_village.png");
     max-width: 100%;  
     margin: auto;
-    width:960px ; 
+    margin-top: 5px;
+    width: 960px ; 
+    padding: 0;
+    box-sizing: content-box;
+}
+
+#block_page{
+    border: 1px solid black;
+    background-image: url("../images/BODY/BACKGROUND/bande milieu.png");
+    /* position: absolute;  */
+    /* background-repeat: repeat-y; */
+    background-size: cover; 
+    padding: 25px !important;
+    width: 95%;
+    /* margin: auto; */
+}
+
+a, a:hover{
+    text-decoration: none;
+    color: inherit;
+    border: none;
+}
+
+header{
+    background-image: url("../images/HEADER/3_bandes.png");
+    /* background-repeat: no-repeat; */
+    background-size: cover;
+    width: 100%;
+    position: relative;
+    border: 1px solid black;
+    /* margin: auto !important; */
+    /* margin-top: -100px !important; */
+}
+
+#logo{
+    /* background-image: url("../images/HEADER/logo_village_green.png"); */
+    /* background-size: cover; */
+    position: absolute;
+    /* min-width: 200px;
+    min-height: 150px; */
+    z-index: 10000;
     padding: 0;
 }
-/***** mise en place du background du milieu  *****/
-.milieu{
-    background-image: url("../images/BODY/BACKGROUND/bande\ milieu.png"); 
-    background-repeat: repeat-y;
-    padding: 50px auto 20px auto; 
-    /* background-size: cover;    */
-    width: 150vh;
-    position: absolute;
-    background-repeat: no-repeat;
-}
-/***** mise en place du background des 3 bandes du header  *****/
-.bande{
-    background-image: url("../images/HEADER/3_bandes.png");
-    background-repeat: no-repeat;
-  
-}  
-/****** mettre les marges du row à zéro ******/
-.row {
-    margin-right: 0 !important;
-    margin-left: 0 !important;
-} 
-/****** la mise du logo en absolute et en premier plan ******/
-.image{
-    z-index: 1;
-    position: absolute;
-    
-}
-/****** mettre les navbars au plan zéro******/
-.navbar{
-    z-index: 0;
-}
-/****** tous les messages d'erreurs de la balise p en rouge******/
-p{
-    color: red;
-}
-/****** ajuster la hauteur de l'image de la publicité de guitare******/
 
-#pub{
-    height: 79vh;
-} 
-/****** ajustement de la taille de l'image micro******/
-#micro{
-   height: 20vh;
-    width: 3000vw;
-} 
-#saxo{
-    height: 20vh;
-    width: 3000vw;
+#logo img{
+    /* background-image: url("../images/HEADER/logo_village_green.png"); */
+    /* background-size: cover; */
+    position: relative;
+    /* min-height: 150px; */
+    z-index: 10000;
+}
+nav{
+    position: relative;
+    min-height: 50px !important;
+    padding: 0  !important;
+    padding-top: 15px  !important;
+    /* margin-top: 5px; */
+}
+
+#btn1,#btn2,#btn3{
+    position: absolute;
+    left: -15px;
+    z-index: 10000;
+}
+
+nav ul {
+    padding: 0 !important;
+    margin-top: 0;
+    margin-bottom: 0;
+    /* position: relative;
+    top: -25px;
+    left: -25px; */
+}
+
+nav div,nav ul {
+    /* padding: 0 !important; */
+    position: relative;
+    /* top: -25px;
+    left: -25px; */
+}
+
+nav ul li{
+    /* display: inline-block;
+    vertical-align: middle; */
+    padding: 0 !important;
+    width: auto;
+    font-size: 0.8em;
+    /* padding: 2px; */
+}
+
+/* nav ul, nav div{
+    display: inline-block;
+    vertical-align: middle;
+    padding: 2px;
+} */
+
+li{
+    list-style-type: none;
 }
