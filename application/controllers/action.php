@@ -184,11 +184,41 @@ defined('BASEPATH') OR exit('No direct srcipt access allowed');
         }
         public function charge(){
             $this->load->model('ajoutproduit');
-            $rest= $this->ajoutproduit->liste();
-            $data= array('ajout', $rest);
+            $rest = $this->ajoutproduit->liste();
+            $data["ajout"] = $rest;
             $this->load->view('header');
-            $this->load->view('chargeproduit',$data);
+            $this->load->view('chargeproduit', $data);
             $this->load->view('footer');
         }
+        public function pro_ajout()
+        {
+            //validation du formulaire d'ajout de produit
+            $this->form_validation->set_rules('id','ID', 'required');
+            $this->form_validation->set_rules('photo', 'Photo','required');
+            $this->form_validation->set_rules('ref','Référence','required');
+            $this->form_validation->set_rules('nom','Nom','required');
+            $this->form_validation->set_rules('descr','Description','required');
+            $this->form_validation->set_rules('pu','Prix','required');
+            $this->form_validation->set_rules('stock','Stock','required');
+            $this->form_validation->set_rules('cat','Catégorie','required');
+            $this->form_validation->set_rules('fourni','Fournisseur','required');
+            // test de validation
+            if($this->form_validation->run()==false)
+            {
+                 //retour au formulaire d'ajout produit
+                 $this->load->view('header');
+                 $this->load->view('ajoutproduct');
+                 $this->load->view('footer');
+            }
+            else
+            {
+                $this->load->view('succes');
+            }
+        }
+        public function ajout()
+        {
+             $this->load->view('header');
+             $this->load->view('ajoutproduct');
+             $this->load->view('footer');
+        }
     }
-?>
