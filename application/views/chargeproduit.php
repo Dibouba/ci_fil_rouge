@@ -33,6 +33,6 @@
         </tbody>
     </table>
 </div>
-<a href="<?php echo site_url("action/ajout")?>" class="btn btn-danger" role="button">Ajout Produit</a>
+<a href="<?php echo site_url("action/ajouterproduit")?>" class="btn btn-danger" role="button">Ajout Produit</a>
 <a role="button" href="<?php echo site_url()?>" class="btn btn-warning">Modifier Produit</a>
 <a role="button" href="<?php echo site_url()?>" class="btn btn-primary">Supprimer</a>

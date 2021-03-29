@@ -2,7 +2,6 @@
 defined('BASEPATH') OR exit('No direct srcipt access allowed');
     class action extends CI_Controller{
         
-        
         //controle du mail
         public function pregmail($str){
             if($str == ''){
@@ -206,6 +205,7 @@ defined('BASEPATH') OR exit('No direct srcipt access allowed');
             $this->form_validation->set_rules('stock','Stock','required');
             $this->form_validation->set_rules('cat','Catégorie','required');
             $this->form_validation->set_rules('fourni','Fournisseur','required');
+            $this->form_validation->set_rules('dateajout','Date ajout','required');
             // test de validation
             if($this->form_validation->run()==false)
             {
@@ -213,19 +213,26 @@ defined('BASEPATH') OR exit('No direct srcipt access allowed');
                  $this->load->view('header');
                  $this->load->view('ajoutproduct');
                  $this->load->view('footer');
+                 
             }
             else
             {
-                $this->load->view('succes');
+            
+                 
+                 $this->db->insert('produits');
+                 $this->load->view('header');
+                 $this->load->view('chargeproduit');
+                 $this->load->view('footer');
+                 //var_dump($res);
             }
+            $this->load->view('succes');
+        }
+        public function ajouterproduit()
+        {
+            $this->load->view('header');
+            $this->load->view("ajoutproduct");
+            $this->load->view("footer");
         }
         // chargement du formulaire d'ajout produit
-        public function ajout()
-        {
-            $this->load->model('ajout');
-            $req=$this->ajout->insert();
-             $this->load->view('header');
-             $this->load->view('ajoutproduct',$req);
-             $this->load->view('footer');
-        }
+       
     }
