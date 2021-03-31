@@ -208,9 +208,13 @@ defined('BASEPATH') OR exit('No direct srcipt access allowed');
             // test de validation
             if($this->form_validation->run()==false)
             {
+                $this->load->model('categories');
+                $this->load->model('fournisseurs');
+                $data['categories'] = $this->categories->liste();
+                $data['fournisseurs'] = $this->fournisseurs->liste();
                  //retour au formulaire d'ajout produit
                  $this->load->view('header');
-                 $this->load->view('ajoutproduct');
+                 $this->load->view('ajoutproduct',$data);
                  $this->load->view('footer');
                  //$this->load->view('error');
             }

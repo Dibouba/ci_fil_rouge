@@ -62,14 +62,28 @@
 <div class="col-xs-12 col-md-6">
     <div class="form-group">
         <label for="cat">Catégorie</label>
-        <input type="text" class="form-control" name="cat" id="cat" value="">
+        <select class="form-control" name="cat" id="cat">
+            <?php 
+                foreach ($categories as $cat){
+                    echo "<option id='".$cat->cat_nom."' value='".$cat->cat_id."'>".$cat->cat_nom."</option>";
+                }
+            ?>
+        </select>
+        <!-- <input type="text" class="form-control" name="cat" id="cat" value=""> -->
     </div>
 </div>
 <!--propriété sur le fournisseur-->
 <div class="col-xs-12 col-md-6">
     <div class="form-group">
         <label for="fourni">Fournisseur</label>
-        <input type="text" class="form-control" name="fourni" id="fourni" value="">
+        <select class="form-control" name="fourni" id="fourni">
+            <?php 
+                foreach ($fournisseurs as $fou){
+                    echo "<option id='$fou->fou_nom' name='$fou->fou_nom' value='$fou->fou_id'>".$fou->fou_nom."</option>";
+                }
+            ?>
+        </select>
+        <!-- <input type="text" class="form-control" name="fourni" id="fourni" value=""> -->
     </div>
 </div>
 <!-- bouton de validation-->

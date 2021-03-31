@@ -25,7 +25,7 @@
                 <div class="collapse navbar-collapse offset-lg-6 offset-md-6 offset-sm-6 offset-4" id="menu1">
                     <ul class="col-lg-10 mt-2 font-weight-bold list-inline">
                         <li class="list-inline-item align-middle col-2 col-xs "><a href="#">infos</a></li>
-                        <li class="list-inline-item align-middle col-5 "><a href="#">espace client</a></li>
+                        <li class="list-inline-item align-middle col-5 "><a href="<?php echo site_url("action/connexion");?>">espace client</a></li>
                         <li class="list-inline-item align-middle col-1">
                             <a href="#">
                                 <img src="<?php echo base_url("assets/images/HEADER/picto_panier.png"); ?>" class="img-fluid" alt="panier">
@@ -44,7 +44,7 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <ul id="menu2" class="text-white collapse navbar-collapse offset-2 offset-sm-4 offset-lg-6 font-weight-bold list-inline">
-                    <li class="col-2 list-inline-item align-middle"><a href="#">Produits</a></li>
+                    <li class="col-2 list-inline-item align-middle"><a href="<?php echo site_url("action/charge")?>">Produits</a></li>
                     <li class="col-2 list-inline-item align-middle"><a href="#">Service</a></li>
                     <li class="col-2 list-inline-item align-middle"><a href="#">Aide</a></li>
                     <li class="col-4 list-inline-item align-middle"><a href="#">A propos</a></li>
