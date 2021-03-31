@@ -1,19 +1,17 @@
+<!--les liens de redirection-->
 <div class="row mt-5 offset-1">
     <div class="col-xs-12 col-md-6">
-        <a href="<?php echo site_url("action/pro_ajout"); ?>" class="btn btn-danger" role="button">Ajout Produit</a>
-        <a role="button" href="<?php echo site_url("action/update"); ?>" class="btn btn-warning">Modifier Produit</a>
+        <a href="<?php echo site_url("action/pro_ajout") ?>" class="btn btn-danger" role="button">Ajout Produit</a>
+        <a role="button" href="<?php echo site_url("action/update") ?>" class="btn btn-warning">Modifier Produit</a>
         <a role="button" href="<?php echo site_url() ?>" class="btn btn-primary">Supprimer</a>
     </div>
 </div>
-<?php echo form_open("action/pro_ajout"); ?>
-<!--declaration d'une variable pour recupérer l'image-->
-
-
+<?php echo form_open('action/update'); ?>
 <!--propriété de l'id-->
 <!-- <div class="col-xs-12 col-md-6">
     <div class="form-group ">
         <label for="id">ID</label>
-        <input type="text" class="form-control" name="id" id="id" value="">
+        <input type="text" class="form-control" name="id" id="id" value="<?php echo $post('id');?>" readonly>
     </div>
 </div> -->
 <!--propriété de l'image-->

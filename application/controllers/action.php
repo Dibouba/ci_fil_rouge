@@ -172,7 +172,6 @@ defined('BASEPATH') OR exit('No direct srcipt access allowed');
         public function connexion(){
             
             $this->load->view('header');
-            //$this->load->view('index');
             $this->load->view('inscription');
             $this->load->view('footer');
         }
@@ -196,7 +195,7 @@ defined('BASEPATH') OR exit('No direct srcipt access allowed');
         public function pro_ajout()
         {
             //validation du formulaire d'ajout de produit
-            $this->form_validation->set_rules('id','ID', 'required');
+            
             $this->form_validation->set_rules('photo', 'Photo','required');
             $this->form_validation->set_rules('ref','Référence','required');
             $this->form_validation->set_rules('nom','Nom','required');
@@ -205,7 +204,7 @@ defined('BASEPATH') OR exit('No direct srcipt access allowed');
             $this->form_validation->set_rules('stock','Stock','required');
             $this->form_validation->set_rules('cat','Catégorie','required');
             $this->form_validation->set_rules('fourni','Fournisseur','required');
-            $this->form_validation->set_rules('dateajout','Date ajout','required');
+            
             // test de validation
             if($this->form_validation->run()==false)
             {
@@ -213,26 +212,74 @@ defined('BASEPATH') OR exit('No direct srcipt access allowed');
                  $this->load->view('header');
                  $this->load->view('ajoutproduct');
                  $this->load->view('footer');
-                 
+                 //$this->load->view('error');
             }
             else
             {
-            
-                 
-                 $this->db->insert('produits');
-                 $this->load->view('header');
-                 $this->load->view('chargeproduit');
-                 $this->load->view('footer');
-                 //var_dump($res);
+
+                // $this->load->view('succes');
+           
+                //récupération des données du formulaire d'ajout
+                $photo=$this->input->get_post('photo');
+                $ref=$this->input->get_post('ref');
+                $nom=$this->input->get_post('nom');
+                $descr=$this->input->get_post('descr');
+                $pu=$this->input->get_post('pu');
+                $stock=$this->input->get_post('stock');
+                $cat=$this->input->get_post('cat');
+                $fourni=$this->input->get_post('fourni');
+                //chargement du model pour insertion des données 
+                $this->load->model('ajout');
+                $this->ajout->insert($photo,$nom,$ref,$descr,$pu,$stock,$cat,$fourni);
+                //chargement de la function qui liste tous les produits
+                $this->charge();
             }
-            $this->load->view('succes');
+           // 
         }
-        public function ajouterproduit()
+        //chargement de la page du formulaire ajout
+        // public function ajouterproduit()
+        // {
+        //     $this->load->view('header');
+        //     $this->load->view("ajoutproduct");
+        //     $this->load->view("footer");
+        // }
+        public function update()
         {
-            $this->load->view('header');
-            $this->load->view("ajoutproduct");
-            $this->load->view("footer");
+            $this->form_validation->set_rules('photo', 'Photo','required');
+            $this->form_validation->set_rules('ref','Référence','required');
+            $this->form_validation->set_rules('nom','Nom','required');
+            $this->form_validation->set_rules('descr','Description','required');
+            $this->form_validation->set_rules('pu','Prix','required');
+            $this->form_validation->set_rules('stock','Stock','required');
+            $this->form_validation->set_rules('cat','Catégorie','required');
+            $this->form_validation->set_rules('fourni','Fournisseur','required');
+
+            if($this->form_validation->run()==false)
+            {
+                $this->load->view('header');
+                $this->load->view('modifproduit');
+                $this->load->view('footer');
+                
+            }
+            else
+            {
+                $id=$this->input->get('id');
+               
+                // $photo=$this->input->get_post('photo');
+                // $ref=$this->input->get_post('ref');
+                // $nom=$this->input->get_post('nom');
+                // $descr=$this->input->get_post('descr');
+                // $pu=$this->input->get_post('pu');
+                // $stock=$this->input->get_post('stock');
+                // $cat=$this->input->get_post('cat');
+                // $fourni=$this->input->get_post('fourni');
+
+                $this->load->model('ajout');
+                $this->load->ajout->miseajour($id);
+                //$this->load->ajout->miseajour($photo,$nom,$ref,$descr,$pu,$stock,$cat,$fourni);
+                $this->charge();
+                
+            }
         }
-        // chargement du formulaire d'ajout produit
        
     }

@@ -1,36 +1,43 @@
 <?php
 defined('BASEPATH') or exit('No direct srcipt access allowed');
 class ajout extends CI_Model
+//function insertion (insert) des données
 {
     
-        public function insert()
+        public function insert($photo,$nom,$ref,$descr,$pu,$stock,$cat,$fourni)
         {
-             $requete=array(
-                 'pro_id'=>'',
-                 'pro_photo'=>'',
-                 'pro_ref'=>'',
-                 'pro_nom'=>'',
-                 'pro_descr'=>'',
-                 'pro_pru'=>'',
-                 'pro_stk'=>'',
-                 'pro_cat_id'=>'',
-                 'pro_fou_id'=>''
+             $requete=array
+             (
+                 'pro_photo'=>$photo,
+                 'pro_ref'=>$ref,
+                 'pro_nom'=>$nom,
+                 'pro_descr'=>$descr,
+                 'pro_pru'=>$pu,
+                 'pro_stk'=>$stock,
+                 'pro_cat_id'=>$cat,
+                 'pro_fou_id'=>$fourni
              );
              $this->db->insert('produits',$requete);
              return $requete;
-          // $this->db->set('id',$id);
-          // $this->db->set('photo',$photo);
-          // $this->db->set('ref',$ref);
-          // $this->db->set('nom',$nom);
-          // $this->db->set('descr',$descr);
-          // $this->db->set('pu',$pu);
-          // $this->db->set('stock',$stk);
-          // $this->db->set('cat',$cat_id);
-          // $this->db->set('fourni',$fou_id);
-          // $this->db->set('dateajout',$date);
-          // return $this->db->insert($this->produits);
         }
-            
+        //function mise à jour (update) des données
+        public function miseajour($id,$photo,$nom,$ref,$descr,$pu,$stock,$cat,$fourni)
+        {
+          $mise=array
+          (
+            'pro_photo'=>$photo,
+            'pro_nom'=>$nom,
+            'pro_ref'=>$ref,
+            'pro_descr'=>$descr,
+            'pro_pru'=>$pu,
+            'pro_stk'=>$stock,
+            'pro_cat_id'=>$cat,
+            'pro_fou_id'=>$fourni
+          );
+          $this->db->where('pro_id',$id);
+          $this->db->update('produits',$mise);
+        }
+          
 
 
     

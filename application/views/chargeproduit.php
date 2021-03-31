@@ -1,5 +1,7 @@
+<!--tableau pour lister toutes les données de la table produit-->
 <div class="table-responsive table-bordered mt-4">
     <table class="table">
+    <!--le header du tableau-->
         <thead class="thead-light">
             <tr>
                 <th>ID</th>
@@ -11,12 +13,16 @@
                 <th>Stocke</th>
                 <th>Catégorie</th>
                 <th>Fournoisseur</th>
+                <th>Date ajout</th>
             </tr>
         </thead>
+        <!--le body du tableau-->
         <tbody>
           <?php
-        
+        //var_dump($mise);
+        //la boucle qui permet de lister tous les produits
               foreach ($ajout as $value) {
+                 // var_dump($value);
                   echo "<tr>";
                   echo "<td>" . $value->pro_id . "</td>";
                   echo "<td>" . $value->pro_photo . "</td>";
@@ -29,10 +35,12 @@
                   echo "<td>" . $value->pro_fou_id . "</td>";
                   echo "</tr>";
               }
+              
             ?>
         </tbody>
     </table>
 </div>
-<a href="<?php echo site_url("action/ajouterproduit")?>" class="btn btn-danger" role="button">Ajout Produit</a>
-<a role="button" href="<?php echo site_url()?>" class="btn btn-warning">Modifier Produit</a>
+<!--les liens de redirection-->
+<a href="<?php echo site_url("action/pro_ajout")?>" class="btn btn-danger" role="button">Ajout Produit</a>
+<a role="button" href="<?php echo site_url("action/update")?>" class="btn btn-warning">Modifier Produit</a>
 <a role="button" href="<?php echo site_url()?>" class="btn btn-primary">Supprimer</a>
