@@ -25,9 +25,9 @@ class ajout extends CI_Model
         // function pour récupérer tous les enregistrements des produits
         function show_produit()
         {
-        $query = $this->db->get('produits');
-        $query_result = $query->result();
-        return $query_result;
+          $query = $this->db->get('produits');
+          $query_result = $query->result();
+          return $query_result;
         }
         // Function pour selectionner tous les produits
              public function show_produit_id($id)
@@ -36,12 +36,13 @@ class ajout extends CI_Model
                 $this->db->from('produits');
                 $this->db->where('pro_id', $id);
                 $query = $this->db->get();
-                $result = $query->result();
-                return $result;
+                return $query->result();
+                // $result = $query->result();
+                // return $result;
               }
         
         //function mise à jour (update) des données
-        public function update_produit($id,$photo,$nom,$ref,$descr,$pu,$stock,$cat,$fourni)
+        public function update_produit($pro_id,$photo,$nom,$ref,$descr,$pu,$stock,$cat,$fourni)
         {
           $data=array
           (
@@ -54,23 +55,42 @@ class ajout extends CI_Model
               'pro_cat_id'=>$cat,
               'pro_fou_id'=>$fourni
           );
-          $this->db->where('pro_id',$id);
-          $this->db->update('produits',$data);
+          $this->db->where('pro_id',$pro_id);
+          $result = $this->db->update('produits',$data);
+          var_dump($result);
+          $res = $this->db->affected_rows();
+          var_dump($res);
+          
+          $this->load->model('ajoutproduit');
+          $rest = $this->ajoutproduit->liste();
+          $data["ajout"] = $rest;
+          $this->load->view('header');
+          $this->load->view('chargeproduit', $data);
+          $this->load->view('footer');
         }
         public function supproduit($id)
         {
-          $sup= array(
-            'pro_photo'=>$_POST['photo'],
-            'pro_nom'=>$_POST['nom'],
-            'pro_ref'=>$_POST['ref'],
-            'pro_descr'=>$_POST['descr'],
-            'pro_pru'=>$_POST['pu'],
-            'pro_stk'=>$_POST['stock'],
-            'cat_nom'=>$_POST['cat'],
-            'fou_nom'=>$_POST['fourni'],
-          );
-          $this->db->delete('produit');
-          $this->db->join('categorie','produit.pro');
+          // $sup= array(
+          //   'pro_photo'=>$_POST['photo'],
+          //   'pro_nom'=>$_POST['nom'],
+          //   'pro_ref'=>$_POST['ref'],
+          //   'pro_descr'=>$_POST['descr'],
+          //   'pro_pru'=>$_POST['pu'],
+          //   'pro_stk'=>$_POST['stock'],
+          //   'cat_nom'=>$_POST['cat'],
+          //   'fou_nom'=>$_POST['fourni'],
+          // );
+          $this->db->where("pro_id",$id);
+          $this->db->delete('produits');
+          // $this->db->join('categorie','produit.pro');
+          
+          
+          $this->load->model('ajoutproduit');
+          $rest = $this->ajoutproduit->liste();
+          $data["ajout"] = $rest;
+          $this->load->view('header');
+          $this->load->view('chargeproduit', $data);
+          $this->load->view('footer');
         }
           
 

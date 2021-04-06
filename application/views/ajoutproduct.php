@@ -79,7 +79,9 @@
         <select class="form-control" name="fourni" id="fourni">
             <?php 
                 foreach ($fournisseurs as $fou){
-                    echo "<option id='$fou->fou_nom' name='$fou->fou_nom' value='$fou->fou_id'>".$fou->fou_nom."</option>";
+                    echo "<option id='$fou->fou_nom' name='$fou->fou_nom' value='$fou->fou_id'";
+                    if ($cat->cat_id == $produits->pro_cat_id) {echo "selected";}
+                    echo ">".$fou->fou_nom."</option>";
                 }
             ?>
         </select>

@@ -245,22 +245,49 @@ defined('BASEPATH') OR exit('No direct srcipt access allowed');
         }
 
         function miseajour() 
-        {
+        {                                   
+            $this->load->model('ajout');
             $id= $this->input->get('id');
-            $photo = $this->input->post('photo');
-            $ref = $this->input->post('ref');
-            $nom = $this->input->post('nom');
-            $descr = $this->input->post('descr');
-            $pu = $this->input->post('pu');
-            $stock = $this->input->post('stock');
-            $cat = $this->input->post('Cat');
-            $fourni = $this->input->post('fourni');
-            $this->ajout->update_produit($id,$photo,$nom,$ref,$descr,$pu,$stock,$cat,$fourni);
+            
+            if(!$this->input->get('id')){
+            // test de validation
+            // if($this->form_validation->run()==false)
+            // {
+                $id= $this->input->post('pro_id');
+                $photo = $this->input->post('photo');
+                $ref = $this->input->post('ref');
+                $nom = $this->input->post('nom');
+                $descr = $this->input->post('descr');
+                $pu = $this->input->post('pu');
+                $stock = $this->input->post('stock');
+                $cat = $this->input->post('cat');
+                $fourni = $this->input->post('fourni');
+                
+                $this->ajout->update_produit($id,$photo,$nom,$ref,$descr,$pu,$stock,$cat,$fourni);
             }
+            else{
+                $this->load->model('categories');
+                $this->load->model('fournisseurs');
+                $data['categories'] = $this->categories->liste();
+                $data['fournisseurs'] = $this->fournisseurs->liste();
+
+                $data["produits"] = $this->ajout->show_produit_id($id)[0];
+                $this->load->view("header");
+                $this->load->view("modifproduit",$data);
+                $this->load->view("footer");
+                var_dump($data["produits"]->pro_id);
+            }
+        }
         
         public function delete()
         {
-            
+            $id= $this->input->get('id');  
+            $this->load->model('ajout');
+            var_dump($id);
+
+            if($id != null){
+                $this->ajout->supproduit($id);
+            }
         }
        
     }

@@ -35,7 +35,7 @@
                   echo "<td>" . $value->pro_cat_id . "</td>";
                   echo "<td>" . $value->pro_fou_id . "</td>";
                   echo "<td> <a type='button' class='btn btn-primary' href='". site_url("action/miseajour?id=".$value->pro_id)."'>Modifier</a> </td>";
-                  echo "<td> <a type='button' class='btn btn-danger' href='".site_url("action/delete")."'>Supprimer</a> </td>";
+                  echo "<td> <a type='button' class='btn btn-danger' href='".site_url("action/delete?id=".$value->pro_id)."'>Supprimer</a> </td>";
                   echo "</tr>";
               }
               
