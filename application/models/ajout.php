@@ -91,6 +91,7 @@ class ajout extends CI_Model
           $this->load->view('header');
           $this->load->view('chargeproduit', $data);
           $this->load->view('footer');
+          $this->session;
         }
           
 
