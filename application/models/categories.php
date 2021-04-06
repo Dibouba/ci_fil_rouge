@@ -7,4 +7,7 @@ class categories  extends  CI_Model
         $result=$this->db->get('categories');
         return  $result->result();
     }
+    public function insert(){}
+    public function update(){}
+    public function delete(){}
 }

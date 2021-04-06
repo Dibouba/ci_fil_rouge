@@ -142,11 +142,6 @@ defined('BASEPATH') OR exit('No direct srcipt access allowed');
         }
 
         public function contact(){
-            // chargement du helper et de la bibliothéques
-            // $this->load->helper(array('form','url'));
-            // $this->load->library('form_validation');
-            // validation du formulaire
-
             $this->form_validation->set_rules('mail','E-mail', 'required|valid_email',array('valid_email'=>'E-mail incorrect','required'=>'E-mail obligatoire'));
             $this->form_validation->set_rules('motdpas', 'Mot de passe', 'required|callback_pregmot');
             $this->form_validation->set_rules('confpas', 'Confirmation mot de passe', 'required|callback_pregconfi');
@@ -238,52 +233,34 @@ defined('BASEPATH') OR exit('No direct srcipt access allowed');
                 //chargement de la function qui liste tous les produits
                 $this->charge();
             }
-           // 
         }
-        //chargement de la page du formulaire ajout
-        // public function ajouterproduit()
-        // {
-        //     $this->load->view('header');
-        //     $this->load->view("ajoutproduct");
-        //     $this->load->view("footer");
-        // }
-        public function update()
+        
+        public function update_id()
         {
-            $this->form_validation->set_rules('photo', 'Photo','required');
-            $this->form_validation->set_rules('ref','Référence','required');
-            $this->form_validation->set_rules('nom','Nom','required');
-            $this->form_validation->set_rules('descr','Description','required');
-            $this->form_validation->set_rules('pu','Prix','required');
-            $this->form_validation->set_rules('stock','Stock','required');
-            $this->form_validation->set_rules('cat','Catégorie','required');
-            $this->form_validation->set_rules('fourni','Fournisseur','required');
-
-            if($this->form_validation->run()==false)
-            {
-                $this->load->view('header');
-                $this->load->view('modifproduit');
-                $this->load->view('footer');
-                
-            }
-            else
-            {
-                $id=$this->input->get('id');
-               
-                // $photo=$this->input->get_post('photo');
-                // $ref=$this->input->get_post('ref');
-                // $nom=$this->input->get_post('nom');
-                // $descr=$this->input->get_post('descr');
-                // $pu=$this->input->get_post('pu');
-                // $stock=$this->input->get_post('stock');
-                // $cat=$this->input->get_post('cat');
-                // $fourni=$this->input->get_post('fourni');
-
+                $id=$this->input->get('id');                                                   
                 $this->load->model('ajout');
-                $this->load->ajout->miseajour($id);
-                //$this->load->ajout->miseajour($photo,$nom,$ref,$descr,$pu,$stock,$cat,$fourni);
-                $this->charge();
-                
+                $data['produit']=$this->ajout->show_produit();
+                $data['post']=$this->ajout->show_produit_id($id);
+                $this->load->view('modifproduit',$data);
+        }
+
+        function miseajour() 
+        {
+            $id= $this->input->get('id');
+            $photo = $this->input->post('photo');
+            $ref = $this->input->post('ref');
+            $nom = $this->input->post('nom');
+            $descr = $this->input->post('descr');
+            $pu = $this->input->post('pu');
+            $stock = $this->input->post('stock');
+            $cat = $this->input->post('Cat');
+            $fourni = $this->input->post('fourni');
+            $this->ajout->update_produit($id,$photo,$nom,$ref,$descr,$pu,$stock,$cat,$fourni);
             }
+        
+        public function delete()
+        {
+            
         }
        
     }

@@ -13,7 +13,8 @@
                 <th>Stocke</th>
                 <th>Catégorie</th>
                 <th>Fournoisseur</th>
-                <th>Date ajout</th>
+                <th>Modifier</th>
+                <th>Supprimer</th>
             </tr>
         </thead>
         <!--le body du tableau-->
@@ -33,6 +34,8 @@
                   echo "<td>" . $value->pro_stk . "</td>";
                   echo "<td>" . $value->pro_cat_id . "</td>";
                   echo "<td>" . $value->pro_fou_id . "</td>";
+                  echo "<td> <a type='button' class='btn btn-primary' href='". site_url("action/miseajour?id=".$value->pro_id)."'>Modifier</a> </td>";
+                  echo "<td> <a type='button' class='btn btn-danger' href='".site_url("action/delete")."'>Supprimer</a> </td>";
                   echo "</tr>";
               }
               
@@ -42,5 +45,5 @@
 </div>
 <!--les liens de redirection-->
 <a href="<?php echo site_url("action/pro_ajout")?>" class="btn btn-danger" role="button">Ajout Produit</a>
-<a role="button" href="<?php echo site_url("action/update")?>" class="btn btn-warning">Modifier Produit</a>
-<a role="button" href="<?php echo site_url()?>" class="btn btn-primary">Supprimer</a>
+<!-- <a role="button" href="<?php echo site_url("action/update")?>" class="btn btn-warning">Modifier Produit</a>
+<a role="button" href="<?php echo site_url("action/delete")?>" class="btn btn-primary">Supprimer</a> -->
