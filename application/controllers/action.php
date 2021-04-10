@@ -8,13 +8,9 @@ defined('BASEPATH') OR exit('No direct srcipt access allowed');
                 $this->form_validation->set_message(array('required'=>'E-mail obligatoire'));
             }
              else if(!preg_match("/^[a-z0-9.-]+@[a-z0-9.-]{2,}.[a-z]{2,4}$/",$str)){
-            // else if(!$this->form_validation->valid_email($str)){
-            //     // var_dump($this->form_validation);
+            
                  $this->form_validation->set_message(array('valid_email'=>'E-mail incorrect'));
-            //     var_dump("false");
-            //     // var_dump($this->form_validation);
-            //     // $this->form_validation->set_message('pregmail','e-mail obligatiore');
-            //     // return false;
+           
                
              }
             else{
@@ -115,10 +111,8 @@ defined('BASEPATH') OR exit('No direct srcipt access allowed');
                 $this->form_validation->set_message(array('required'=>'le nom de la ville est obliagatoire'));
             }
             else if(!preg_match("/^[A-Za-z]+$/", $str7)){
-                // $this->form_validation->set_message(array('required'=>'la ville est oblgatoire'));
+                
                 $this->form_validation->set_message(array('required'=>'le nom de la ville est incorrect'));
-                // $this->form_validation->set_message('pregville', 'la ville est oblgatoire');
-                // return false;
                 
             }
             else{
@@ -234,7 +228,7 @@ defined('BASEPATH') OR exit('No direct srcipt access allowed');
                 $this->charge();
             }
         }
-        
+        //function qui récupére l'id envoyer dans le url
         public function update_id()
         {
                 $id=$this->input->get('id');                                                   
@@ -243,16 +237,13 @@ defined('BASEPATH') OR exit('No direct srcipt access allowed');
                 $data['post']=$this->ajout->show_produit_id($id);
                 $this->load->view('modifproduit',$data);
         }
-
+        // function qui fait le mise à jour 
         function miseajour() 
         {                                   
             $this->load->model('ajout');
             $id= $this->input->get('id');
             
             if(!$this->input->get('id')){
-            // test de validation
-            // if($this->form_validation->run()==false)
-            // {
                 $id= $this->input->post('pro_id');
                 $photo = $this->input->post('photo');
                 $ref = $this->input->post('ref');
@@ -275,15 +266,13 @@ defined('BASEPATH') OR exit('No direct srcipt access allowed');
                 $this->load->view("header");
                 $this->load->view("modifproduit",$data);
                 $this->load->view("footer");
-                var_dump($data["produits"]->pro_id);
             }
         }
-        
+        //function de suppression
         public function delete()
         {
             $id= $this->input->get('id');  
             $this->load->model('ajout');
-            var_dump($id);
 
             if($id != null){
                 $this->ajout->supproduit($id);

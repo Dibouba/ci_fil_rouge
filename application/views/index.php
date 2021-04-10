@@ -23,40 +23,40 @@
     </div>
 </div>
 <!--la premiére ligne des produits-->
-<div class="row">
+<div class="row no-margin">
     <!--categorie guitare-->
-    <div class="col-6 col-md-3">
+    <div class="col-3 no-margin">
         <a href="#"><img src="<?php echo base_url("assets/images/body/categories guitare.png"); ?>" id="guit" class="img-fluid" alt="cat-guitare"></a>
     </div>
     <!--categorie batterie-->
-    <div class="col-6 col-md-3">
+    <div class="col-3 no-margin">
         <a href="#"><img src="<?php echo base_url("assets/images/body/categories batterie.png"); ?>" id="bat" class="img-fluid" alt="cat-batterie"></a>
     </div>
     <!--categorie  piano-->
-    <div class="col-6 col-md-3">
+    <div class="col-3 no-margin">
         <a href="#"><img src="<?php echo base_url("assets/images/body/categories piano.png"); ?>" id="piano" class="img-fluid" alt="cat-piano"></a>
     </div>
     <!--categorie micro-->
-    <div class="col-6 col-md-3">
+    <div class="col-3 no-margin">
         <a href="#"><img src="<?php echo base_url("assets/images/body/categories micro.png"); ?>" id="micro" class="img-fluid w-3" alt="cat-micro"></a>
     </div>
 </div>
 <!--le deuxiéme ligne des produits-->
-<div class="row">
+<div class="row no-margin">
     <!-- catégorie sono-->
-    <div class="col-6 col-md-3">
+    <div class="col-3 no-margin">
         <a href="#"><img src="<?php echo base_url("assets/images/body/categories sono.png"); ?>" id="sono" class="img-fluid" alt="cat-sono"></a>
     </div>
     <!--catégorie case-->
-    <div class="col-6 col-md-3">
+    <div class="col-3 no-margin">
         <a href="#"><img src="<?php echo base_url("assets/images/body/categories cases.png"); ?>" id="case" class="img-fluid" alt="cat-case"></a>
     </div>
     <!--catégorie cable-->
-    <div class="col-6 col-md-3">
+    <div class="col-3 no-margin">
         <a href="#"><img src="<?php echo base_url("assets/images/body/categories cable.png"); ?>" id="cable" class="img-fluid" alt="cat-cable"></a>
     </div>
     <!--catégorie saxo-->
-    <div class="col-6 col-md-3">
+    <div class="col-3 no-margin">
         <a href="#"><img src="<?php echo base_url("assets/images/body/categories saxo.png"); ?>" id="saxo" class="img-fluid" alt="cat-micro"></a>
     </div>
 </div>

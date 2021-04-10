@@ -20,7 +20,7 @@
         <!--le body du tableau-->
         <tbody>
           <?php
-        //var_dump($mise);
+       
         //la boucle qui permet de lister tous les produits
               foreach ($ajout as $value) {
                  // var_dump($value);
@@ -45,5 +45,3 @@
 </div>
 <!--les liens de redirection-->
 <a href="<?php echo site_url("action/pro_ajout")?>" class="btn btn-danger" role="button">Ajout Produit</a>
-<!-- <a role="button" href="<?php echo site_url("action/update")?>" class="btn btn-warning">Modifier Produit</a>
-<a role="button" href="<?php echo site_url("action/delete")?>" class="btn btn-primary">Supprimer</a> -->

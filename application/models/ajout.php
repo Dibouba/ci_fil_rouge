@@ -1,8 +1,8 @@
 <?php
 defined('BASEPATH') or exit('No direct srcipt access allowed');
 class ajout extends CI_Model
-//function insertion (insert) des données
 {
+  //la function qui fait l'insertion dans la base de données
     
         public function insert($photo,$nom,$ref,$descr,$pu,$stock,$cat,$fourni)
         {
@@ -29,7 +29,7 @@ class ajout extends CI_Model
           $query_result = $query->result();
           return $query_result;
         }
-        // Function pour selectionner tous les produits
+        // Function pour selectionner tous les produits en fonction de leurs id
              public function show_produit_id($id)
              {
                 $this->db->select('*');
@@ -37,8 +37,7 @@ class ajout extends CI_Model
                 $this->db->where('pro_id', $id);
                 $query = $this->db->get();
                 return $query->result();
-                // $result = $query->result();
-                // return $result;
+               
               }
         
         //function mise à jour (update) des données
@@ -57,9 +56,9 @@ class ajout extends CI_Model
           );
           $this->db->where('pro_id',$pro_id);
           $result = $this->db->update('produits',$data);
-          var_dump($result);
+          
           $res = $this->db->affected_rows();
-          var_dump($res);
+
           
           $this->load->model('ajoutproduit');
           $rest = $this->ajoutproduit->liste();
@@ -68,22 +67,13 @@ class ajout extends CI_Model
           $this->load->view('chargeproduit', $data);
           $this->load->view('footer');
         }
+        // function supression  
         public function supproduit($id)
         {
-          // $sup= array(
-          //   'pro_photo'=>$_POST['photo'],
-          //   'pro_nom'=>$_POST['nom'],
-          //   'pro_ref'=>$_POST['ref'],
-          //   'pro_descr'=>$_POST['descr'],
-          //   'pro_pru'=>$_POST['pu'],
-          //   'pro_stk'=>$_POST['stock'],
-          //   'cat_nom'=>$_POST['cat'],
-          //   'fou_nom'=>$_POST['fourni'],
-          // );
+          
           $this->db->where("pro_id",$id);
           $this->db->delete('produits');
-          // $this->db->join('categorie','produit.pro');
-          
+         
           
           $this->load->model('ajoutproduit');
           $rest = $this->ajoutproduit->liste();

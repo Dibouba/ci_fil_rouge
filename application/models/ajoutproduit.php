@@ -10,9 +10,6 @@ class ajoutproduit  extends  CI_Model
     {
         $result=$this->db->get('produits');
           return  $result->result();
-        // $query=$this->db->query('select * from produits');
-        // $query=$query->result_array();
-        // return $query;
     }
    
     

@@ -1,17 +1,10 @@
-<!--les liens de redirection-->
-<div class="row mt-5 offset-1">
-    <div class="col-xs-12 col-md-6">
-        <a href="<?php echo site_url("action/pro_ajout") ?>" class="btn btn-danger" role="button">Ajout Produit</a>
-        <!-- <a role="button" href="<?php echo site_url("action/update_id") ?>" class="btn btn-warning">Modifier Produit</a>
-        <a role="button" href="<?php echo site_url("action/delete") ?>" class="btn btn-primary">Supprimer</a> -->
-    </div>
-</div>
+
 <?php echo form_open('action/miseajour'); ?>
 <!--propriété de l'id-->
 <div class="col-xs-12 col-md-6">
     <div class="form-group ">
-        <label for="pro_id">ID</label>
-        <input type="text" class="form-control" name="pro_id" id="pro_id" value="<?php echo $produits->pro_id; ?>">
+        
+        <input type="hidden" class="form-control" name="pro_id" id="pro_id" value="<?php echo $produits->pro_id; ?>">
     </div>
 </div>
 <!--propriété de l'image-->
@@ -85,9 +78,8 @@
                 }
             ?>
         </select>
-        <!-- <input type="text" class="form-control" name="fourni" id="fourni" value="<?php echo $produits->pro_fou_id;?>"> -->
     </div>
 </div>
 <!-- bouton de validation-->
-<button type="submit" name="valider" id="valider" class="btn btn-dark">valider</button>
+<button type="submit" name="valider" id="valider" class="btn btn-dark">Modifier</button>
 <?php echo form_close(); ?>
